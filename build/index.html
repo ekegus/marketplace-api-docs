@@ -1,0 +1,549 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-f19b2109.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-a9fde460.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-a6f38d76.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#rate-limiting" class="toc-h1 toc-link" data-title="Rate Limiting">Rate Limiting</a>
+          </li>
+          <li>
+            <a href="#listings" class="toc-h1 toc-link" data-title="Listings">Listings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#update-a-listing" class="toc-h2 toc-link" data-title="Update a Listing">Update a Listing</a>
+                  </li>
+                  <li>
+                    <a href="#batch-operations" class="toc-h2 toc-link" data-title="Batch Operations">Batch Operations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>The Candide Marketplace API is organised around <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>. Our API has resource-oriented URLs, accepts <a href="http://www.json.org/">JSON-encoded</a> request bodies, returns <a href="http://www.json.org/">JSON-encoded</a> responses, and uses standard HTTP response codes, authentication, and verbs.</p>
+
+<p>You can currently use the Candide Marketplace API to manage your shop&#39;s inventory. We don&#39;t currently offer any dedicated client libraries. Code examples can be viewed in the dark area to the right.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://marketplace-api.candideapp.com/api_endpoint_here"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>plants-plants-plants</code> with your API key.</p>
+</blockquote>
+
+<p>The Candide Marketplace API uses API keys to authenticate requests. You can view and manage your API keys in the <a href="cms.candideapp.com">Candide CMS</a>.</p>
+
+<p>New secret keys are only visible the first time you access them. After that, the CMS redacts the API key. If you lose a secret key, you can&#39;t recover it from the CMS and must create another one. Candide allows a maximum of 5 API keys to be created for an account.</p>
+
+<p>The API key must be included in all API requests to the server. Not including your key when making an API request, or using one that is incorrect or outdated, will return an error. All API requests must be made over <a href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>. Calls made over plain HTTP will fail.</p>
+
+<p>API keys should be provided using a header that looks like the following:</p>
+
+<p><code>Authorization: Bearer plants-plants-plants</code></p>
+
+<aside class="notice">
+You must replace <code>plants-plants-plants</code> with your account's API key.
+</aside>
+<h1 id='rate-limiting'>Rate Limiting</h1>
+<p>The Candide Marketplace API is rate limited to prevent bursts of traffic that may degrade our ability to maintain consistent API performance for all users. By default, each account is limited at 60 requests per minute.</p>
+
+<p>Accounts that exceed this limit may see error responses with the 429 status code.</p>
+<h1 id='listings'>Listings</h1><h2 id='update-a-listing'>Update a Listing</h2>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/listing?sku=93A-123"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PATCH <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span>
+  <span class="nt">-d</span> <span class="s1">'{"quantity": 42}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response (204 No Content)</p>
+</blockquote>
+
+<p>Modifies a listing.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PATCH http://marketplace-api.candideapp.com/listing?sku=&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SKU <em>(required)</em></td>
+<td>The ID used by your shop to track inventory</td>
+</tr>
+</tbody></table>
+<h3 id='arguments'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Decription</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quantity</td>
+<td>number</td>
+<td>A nonnegative integer representing the number of units available for a given Listing</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Currently only updating quantity is supported.
+</aside>
+<h2 id='batch-operations'>Batch Operations</h2>
+<blockquote>
+<p>Example Request. Updates the quanity of one listing, and deletes another.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/listings/batch"</span> <span class="se">\</span>
+  <span class="nt">-X</span> POST <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span> <span class="se">\</span>
+  <span class="nt">--data-binary</span> @- <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+{
+  "requests": [
+    {
+      "method": "UPDATE",
+      "sku": "abc-123",
+      "data": {
+        "quantity": 10,
+      },
+    },
+    {
+      "method": "DELETE",
+      "sku": "abc-123",
+    },
+  ];
+}
+</span><span class="no">EOF
+</span></code></pre></div>
+<blockquote>
+<p>Response (204 No Content)</p>
+</blockquote>
+
+<p>You can create, update and delete multiple listings with a single HTTP call using batch updates.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://marketplace-api.candideapp.com/listings/batch</code></p>
+<h3 id='arguments-2'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Decription</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requests</td>
+<td>object</td>
+<td>A JSON object containing all requests.</td>
+</tr>
+<tr>
+<td>requests[].sku</td>
+<td>string</td>
+<td>The ID used by your shop to track inventory</td>
+</tr>
+<tr>
+<td>requests[].method</td>
+<td>string</td>
+<td>CREATE, UPDATE, DELETE</td>
+</tr>
+<tr>
+<td>requests[].data</td>
+<td>object</td>
+<td>A JSON object containing fields and values for a listing.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Currently only update operations that modify quantity are supported.
+</aside>
+<h1 id='errors'>Errors</h1>
+<p>The Candide Marketplace API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td><u>Bad Request</u><br/>Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td><u>Unauthorized</u><br/>Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><u>Forbidden</u><br/>You are not authorized to view this resource.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><u>Not Found</u><br/>The specified record or records could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td><u>Method Not Allowed</u><br/>You tried to access a resource with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td><u>Not Acceptable</u><br/>You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td><u>Gone</u><br/>The records requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>429</td>
+<td><u>Too Many Requests</u><br/>You&#39;re requesting too many records!</td>
+</tr>
+<tr>
+<td>500</td>
+<td><u>Internal Server Error</u><br/>We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td><u>Service Unavailable</u><br/>We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
