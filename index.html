@@ -346,20 +346,19 @@
 <p>You can currently use the Candide Marketplace API to manage your shop&#39;s inventory. We don&#39;t currently offer any dedicated client libraries. Code examples can be viewed in the dark area to the right.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>To check you are authorised:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://marketplace-api.candideapp.com/api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Will return 200 if authenticated correctly</span>
+curl <span class="s2">"https://marketplace-api.candideapp.com/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span>
 </code></pre></div>
 <blockquote>
 <p>Make sure to replace <code>plants-plants-plants</code> with your API key.</p>
 </blockquote>
 
-<p>The Candide Marketplace API uses API keys to authenticate requests. You can view and manage your API keys in the <a href="cms.candideapp.com">Candide CMS</a>.</p>
+<p>The Candide Marketplace API uses API keys to authenticate requests. You can view and manage your API keys in the <a href="https://myshop.candidegardening.com/">Seller Portal</a>.</p>
 
-<p>New secret keys are only visible the first time you access them. After that, the CMS redacts the API key. If you lose a secret key, you can&#39;t recover it from the CMS and must create another one. Candide allows a maximum of 5 API keys to be created for an account.</p>
+<p>New secret keys are only visible the first time you access them. After that, the Seller Portal redacts the API key. If you lose a secret key, you can&#39;t recover it from the Seller Portal and must create another one. Candide allows a maximum of 5 API keys to be created for an account.</p>
 
 <p>The API key must be included in all API requests to the server. Not including your key when making an API request, or using one that is incorrect or outdated, will return an error. All API requests must be made over <a href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>. Calls made over plain HTTP will fail.</p>
 
