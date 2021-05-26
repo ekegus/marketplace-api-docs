@@ -1,11 +1,10 @@
 # Authentication
 
-> To authorize, use this code:
+> To check you are authorised:
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "https://marketplace-api.candideapp.com/api_endpoint_here" \
-  -H 'Content-Type: application/json' \
+# Will return 200 if authenticated correctly
+curl "https://marketplace-api.candideapp.com/" \
   -H "Authorization: Bearer plants-plants-plants"
 ```
 
