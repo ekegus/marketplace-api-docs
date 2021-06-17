@@ -12,7 +12,13 @@ curl "https://marketplace-api.candideapp.com/listing?sku=93A-123" \
   -d '{"quantity": 42}'
 ```
 
-> Response (204 No Content)
+> Response
+> {
+> "id": "352de449-a943-4651-937b-52b7ad3246e6",
+> "sku": "93A-123",
+> "quantity": 42,
+> "updatedAt": "2021-06-17T15:53:14.735Z"
+> }
 
 Modifies a listing.
 
@@ -28,9 +34,9 @@ Modifies a listing.
 
 ### Arguments
 
-| Parameter | Type   | Decription                                                                           |
-| --------- | ------ | ------------------------------------------------------------------------------------ |
-| quantity  | number | A nonnegative integer representing the number of units available for a given Listing |
+| Parameter | Type   | Description                                                                           |
+| --------- | ------ | ------------------------------------------------------------------------------------- |
+| quantity  | number | A non-negative integer representing the number of units available for a given Listing |
 
 <aside class="notice">
 Currently only updating quantity is supported.
@@ -38,10 +44,10 @@ Currently only updating quantity is supported.
 
 ## Batch Operations
 
-> Example Request. Updates the quanity of one listing, and deletes another.
+> Example Request. Updates the quantity of two listings.
 
 ```shell
-curl "https://marketplace-api.candideapp.com/listings/batch" \
+curl "https://marketplace-api.candideapp.com/listings/batch-update" \
   -X POST \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer plants-plants-plants" \
@@ -49,37 +55,47 @@ curl "https://marketplace-api.candideapp.com/listings/batch" \
 {
   "requests": [
     {
-      "method": "UPDATE",
-      "sku": "abc-123",
-      "data": {
-        "quantity": 10,
-      },
+      "sku": "93A-123",
+      "quantity": 15,
     },
     {
-      "method": "DELETE",
-      "sku": "abc-123",
+      "sku": "94A-123",
+      "quantity": 10,
+    },
+    {
+      "sku": "SKU-fake",
+      "quantity": 10,
     },
   ];
 }
 EOF
 ```
 
-> Response (204 No Content)
+> Response
+> {
+> "totalOperations": 3,
+> "totalSucceeded": 2,
+> "totalFailed": 1,
+> "failedSKUs": [
 
-You can create, update and delete multiple listings with a single HTTP call using batch updates.
+    "SKU-fake"
+
+]
+}
+
+You can update multiple listings with a single HTTP call using batch updates.
 
 ### HTTP Request
 
-`POST http://marketplace-api.candideapp.com/listings/batch`
+`POST http://marketplace-api.candideapp.com/listings/batch-update`
 
 ### Arguments
 
-| Parameter         | Type   | Decription                                                |
-| ----------------- | ------ | --------------------------------------------------------- |
-| requests          | object | A JSON object containing all requests.                    |
-| requests[].sku    | string | The ID used by your shop to track inventory               |
-| requests[].method | string | CREATE, UPDATE, DELETE                                    |
-| requests[].data   | object | A JSON object containing fields and values for a listing. |
+| Parameter           | Type   | Decription                                                                            |
+| ------------------- | ------ | ------------------------------------------------------------------------------------- |
+| requests            | object | A JSON object containing all requests.                                                |
+| requests[].sku      | string | The ID used by your shop to track inventory                                           |
+| requests[].quantity | number | A non-negative integer representing the number of units available for a given Listing |
 
 <aside class="notice">
 Currently only update operations that modify quantity are supported.
