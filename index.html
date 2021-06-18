@@ -384,7 +384,13 @@ You must replace <code>plants-plants-plants</code> with your account's API key.
   <span class="nt">-d</span> <span class="s1">'{"quantity": 42}'</span>
 </code></pre></div>
 <blockquote>
-<p>Response (204 No Content)</p>
+<p>Response
+{
+&quot;id&quot;: &quot;352de449-a943-4651-937b-52b7ad3246e6&quot;,
+&quot;sku&quot;: &quot;93A-123&quot;,
+&quot;quantity&quot;: 42,
+&quot;updatedAt&quot;: &quot;2021-06-17T15:53:14.735Z&quot;
+}</p>
 </blockquote>
 
 <p>Modifies a listing.</p>
@@ -407,13 +413,13 @@ You must replace <code>plants-plants-plants</code> with your account's API key.
 <tr>
 <th>Parameter</th>
 <th>Type</th>
-<th>Decription</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>quantity</td>
 <td>number</td>
-<td>A nonnegative integer representing the number of units available for a given Listing</td>
+<td>A non-negative integer representing the number of units available for a given Listing</td>
 </tr>
 </tbody></table>
 
@@ -422,9 +428,9 @@ Currently only updating quantity is supported.
 </aside>
 <h2 id='batch-operations'>Batch Operations</h2>
 <blockquote>
-<p>Example Request. Updates the quanity of one listing, and deletes another.</p>
+<p>Example Request. Updates the quantity of two listings.</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/listings/batch"</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/listings/batch-update"</span> <span class="se">\</span>
   <span class="nt">-X</span> POST <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span> <span class="se">\</span>
@@ -432,27 +438,38 @@ Currently only updating quantity is supported.
 {
   "requests": [
     {
-      "method": "UPDATE",
-      "sku": "abc-123",
-      "data": {
-        "quantity": 10,
-      },
+      "sku": "93A-123",
+      "quantity": 15,
     },
     {
-      "method": "DELETE",
-      "sku": "abc-123",
+      "sku": "94A-123",
+      "quantity": 10,
+    },
+    {
+      "sku": "SKU-fake",
+      "quantity": 10,
     },
   ];
 }
 </span><span class="no">EOF
 </span></code></pre></div>
 <blockquote>
-<p>Response (204 No Content)</p>
+<p>Response
+{
+&quot;totalOperations&quot;: 3,
+&quot;totalSucceeded&quot;: 2,
+&quot;totalFailed&quot;: 1,
+&quot;failedSKUs&quot;: [</p>
 </blockquote>
 
-<p>You can create, update and delete multiple listings with a single HTTP call using batch updates.</p>
+<p>&quot;SKU-fake&quot;</p>
+
+<p>]
+}</p>
+
+<p>You can update multiple listings with a single HTTP call using batch updates.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST http://marketplace-api.candideapp.com/listings/batch</code></p>
+<p><code>POST http://marketplace-api.candideapp.com/listings/batch-update</code></p>
 <h3 id='arguments-2'>Arguments</h3>
 <table><thead>
 <tr>
@@ -472,14 +489,9 @@ Currently only updating quantity is supported.
 <td>The ID used by your shop to track inventory</td>
 </tr>
 <tr>
-<td>requests[].method</td>
-<td>string</td>
-<td>CREATE, UPDATE, DELETE</td>
-</tr>
-<tr>
-<td>requests[].data</td>
-<td>object</td>
-<td>A JSON object containing fields and values for a listing.</td>
+<td>requests[].quantity</td>
+<td>number</td>
+<td>A non-negative integer representing the number of units available for a given Listing</td>
 </tr>
 </tbody></table>
 
