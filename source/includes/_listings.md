@@ -13,12 +13,15 @@ curl "https://marketplace-api.candideapp.com/listing?sku=93A-123" \
 ```
 
 > Response
-> {
-> "id": "352de449-a943-4651-937b-52b7ad3246e6",
-> "sku": "93A-123",
-> "quantity": 42,
-> "updatedAt": "2021-06-17T15:53:14.735Z"
-> }
+
+```json
+{
+  "id": "352de449-a943-4651-937b-52b7ad3246e6",
+  "sku": "93A-123",
+  "quantity": 42,
+  "updatedAt": "2021-06-17T15:53:14.735Z"
+}
+```
 
 Modifies a listing.
 
@@ -72,12 +75,15 @@ EOF
 ```
 
 > Response
-> {
-> "totalOperations": 3,
-> "totalSucceeded": 2,
-> "totalFailed": 1,
-> "failedSKUs": ["SKU-fake"]
-> }
+
+```json
+{
+  "totalOperations": 3,
+  "totalSucceeded": 2,
+  "totalFailed": 1,
+  "failedSKUs": ["SKU-fake"]
+}
+```
 
 You can update multiple listings with a single HTTP call using batch updates.
 
