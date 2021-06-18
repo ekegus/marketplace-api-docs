@@ -76,12 +76,8 @@ EOF
 > "totalOperations": 3,
 > "totalSucceeded": 2,
 > "totalFailed": 1,
-> "failedSKUs": [
-
-    "SKU-fake"
-
-]
-}
+> "failedSKUs": ["SKU-fake"]
+> }
 
 You can update multiple listings with a single HTTP call using batch updates.
 
