@@ -380,7 +380,7 @@ You must replace <code>plants-plants-plants</code> with your account's API key.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/listing?sku=93A-123"</span> <span class="se">\</span>
   <span class="nt">-X</span> PATCH <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{"quantity": 42}'</span>
 </code></pre></div>
 <blockquote>
@@ -439,17 +439,17 @@ Currently only updating quantity is supported.
   "requests": [
     {
       "sku": "93A-123",
-      "quantity": 15,
+      "quantity": 15
     },
     {
       "sku": "94A-123",
-      "quantity": 10,
+      "quantity": 10
     },
     {
       "sku": "SKU-fake",
-      "quantity": 10,
-    },
-  ];
+      "quantity": 10
+    }
+  ]
 }
 </span><span class="no">EOF
 </span></code></pre></div>
