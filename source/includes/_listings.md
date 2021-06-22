@@ -8,7 +8,7 @@
 curl "https://marketplace-api.candideapp.com/listing?sku=93A-123" \
   -X PATCH \
   -H 'Content-Type: application/json' \
-  -H "Authorization: Bearer plants-plants-plants"
+  -H "Authorization: Bearer plants-plants-plants" \
   -d '{"quantity": 42}'
 ```
 
@@ -59,17 +59,17 @@ curl "https://marketplace-api.candideapp.com/listings/batch-update" \
   "requests": [
     {
       "sku": "93A-123",
-      "quantity": 15,
+      "quantity": 15
     },
     {
       "sku": "94A-123",
-      "quantity": 10,
+      "quantity": 10
     },
     {
       "sku": "SKU-fake",
-      "quantity": 10,
-    },
-  ];
+      "quantity": 10
+    }
+  ]
 }
 EOF
 ```
