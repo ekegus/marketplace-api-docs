@@ -5,7 +5,7 @@
 ```shell
 # Will return 200 if authenticated correctly
 curl "https://marketplace-api.candideapp.com/" \
-  -H "Authorization: Bearer plants-plants-plants"
+-i -H "Authorization: Bearer plants-plants-plants"
 ```
 
 > Make sure to replace `plants-plants-plants` with your API key.
