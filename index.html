@@ -436,20 +436,26 @@ Currently only updating quantity is supported.
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span> <span class="se">\</span>
   <span class="nt">--data-binary</span> @- <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
 {
-  "requests": [
-    {
-      "sku": "93A-123",
-      "quantity": 15
-    },
-    {
-      "sku": "94A-123",
-      "quantity": 10
-    },
-    {
-      "sku": "SKU-fake",
-      "quantity": 10
-    }
-  ]
+    "requests": [
+        {
+            "sku": "93A-123",
+            "data": {
+                "quantity": 15
+            }
+        },
+        {
+            "sku": "94A-123",
+            "data": {
+                "quantity": 10
+            }
+        },
+        {
+            "sku": "SKU-fake",
+            "data": {
+                "quantity": 10
+            }
+        }
+    ]
 }
 </span><span class="no">EOF
 </span></code></pre></div>
@@ -471,7 +477,7 @@ Currently only updating quantity is supported.
 <tr>
 <th>Parameter</th>
 <th>Type</th>
-<th>Decription</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -485,7 +491,7 @@ Currently only updating quantity is supported.
 <td>The ID used by your shop to track inventory</td>
 </tr>
 <tr>
-<td>requests[].quantity</td>
+<td>requests[].data.quantity</td>
 <td>number</td>
 <td>A non-negative integer representing the number of units available for a given Listing</td>
 </tr>
