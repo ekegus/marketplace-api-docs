@@ -56,20 +56,26 @@ curl "https://marketplace-api.candideapp.com/listings/batch-update" \
   -H "Authorization: Bearer plants-plants-plants" \
   --data-binary @- << EOF
 {
-  "requests": [
-    {
-      "sku": "93A-123",
-      "quantity": 15
-    },
-    {
-      "sku": "94A-123",
-      "quantity": 10
-    },
-    {
-      "sku": "SKU-fake",
-      "quantity": 10
-    }
-  ]
+	"requests": [
+		{
+			"sku": "93A-123",
+			"data": {
+				"quantity": 15
+			}
+		},
+		{
+			"sku": "94A-123",
+			"data": {
+				"quantity": 10
+			}
+		},
+		{
+			"sku": "SKU-fake",
+			"data": {
+				"quantity": 10
+			}
+		}
+	]
 }
 EOF
 ```
@@ -93,11 +99,11 @@ You can update multiple listings with a single HTTP call using batch updates.
 
 ### Arguments
 
-| Parameter           | Type   | Decription                                                                            |
-| ------------------- | ------ | ------------------------------------------------------------------------------------- |
-| requests            | object | A JSON object containing all requests.                                                |
-| requests[].sku      | string | The ID used by your shop to track inventory                                           |
-| requests[].quantity | number | A non-negative integer representing the number of units available for a given Listing |
+| Parameter                | Type   | Description                                                                           |
+| ------------------------ | ------ | ------------------------------------------------------------------------------------- |
+| requests                 | object | A JSON object containing all requests.                                                |
+| requests[].sku           | string | The ID used by your shop to track inventory                                           |
+| requests[].data.quantity | number | A non-negative integer representing the number of units available for a given Listing |
 
 <aside class="notice">
 Currently only update operations that modify quantity are supported.
