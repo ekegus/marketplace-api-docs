@@ -4,7 +4,7 @@
 
 ```shell
 # Will return 200 if authenticated correctly
-curl "https://marketplace-api.candideapp.com/" \
+curl "https://marketplace-api.candideapp.com/v1/" \
 -i -H "Authorization: Bearer plants-plants-plants"
 ```
 

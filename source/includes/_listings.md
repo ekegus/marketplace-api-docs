@@ -5,7 +5,7 @@
 > Example Request
 
 ```shell
-curl "https://marketplace-api.candideapp.com/listing?sku=93A-123" \
+curl "https://marketplace-api.candideapp.com/v1/listing?sku=93A-123" \
   -X PATCH \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer plants-plants-plants" \
@@ -27,7 +27,7 @@ Modifies a listing.
 
 ### HTTP Request
 
-`PATCH http://marketplace-api.candideapp.com/listing?sku=<ID>`
+`PATCH http://marketplace-api.candideapp.com/v1/listing?sku=<ID>`
 
 ### URL Parameters
 
@@ -50,7 +50,7 @@ Currently only updating quantity is supported.
 > Example Request. Updates the quantity of two listings.
 
 ```shell
-curl "https://marketplace-api.candideapp.com/listings/batch-update" \
+curl "https://marketplace-api.candideapp.com/v1/listings/batch-update" \
   -X POST \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer plants-plants-plants" \
@@ -95,7 +95,7 @@ You can update multiple listings with a single HTTP call using batch updates.
 
 ### HTTP Request
 
-`POST http://marketplace-api.candideapp.com/listings/batch-update`
+`POST http://marketplace-api.candideapp.com/v1/listings/batch-update`
 
 ### Arguments
 
