@@ -349,7 +349,7 @@
 <p>To check you are authorised:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Will return 200 if authenticated correctly</span>
-curl <span class="s2">"https://marketplace-api.candideapp.com/"</span> <span class="se">\</span>
+curl <span class="s2">"https://marketplace-api.candideapp.com/v1/"</span> <span class="se">\</span>
 <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span>
 </code></pre></div>
 <blockquote>
@@ -377,7 +377,7 @@ You must replace <code>plants-plants-plants</code> with your account's API key.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/listing?sku=93A-123"</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/v1/listing?sku=93A-123"</span> <span class="se">\</span>
   <span class="nt">-X</span> PATCH <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span> <span class="se">\</span>
@@ -395,7 +395,7 @@ You must replace <code>plants-plants-plants</code> with your account's API key.
 </span></code></pre></div>
 <p>Modifies a listing.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>PATCH http://marketplace-api.candideapp.com/listing?sku=&lt;ID&gt;</code></p>
+<p><code>PATCH http://marketplace-api.candideapp.com/v1/listing?sku=&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -430,7 +430,7 @@ Currently only updating quantity is supported.
 <blockquote>
 <p>Example Request. Updates the quantity of two listings.</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/listings/batch-update"</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://marketplace-api.candideapp.com/v1/listings/batch-update"</span> <span class="se">\</span>
   <span class="nt">-X</span> POST <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer plants-plants-plants"</span> <span class="se">\</span>
@@ -471,7 +471,7 @@ Currently only updating quantity is supported.
 </span></code></pre></div>
 <p>You can update multiple listings with a single HTTP call using batch updates.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST http://marketplace-api.candideapp.com/listings/batch-update</code></p>
+<p><code>POST http://marketplace-api.candideapp.com/v1/listings/batch-update</code></p>
 <h3 id='arguments-2'>Arguments</h3>
 <table><thead>
 <tr>
