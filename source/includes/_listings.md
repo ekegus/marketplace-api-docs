@@ -1,4 +1,4 @@
-# Listings
+# Inventory
 
 ## Update a Listing
 
